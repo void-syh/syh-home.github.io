@@ -4,13 +4,25 @@
   
   
   <entry>
-    <title>test cate tags</title>
-    <link href="/syh-home.github.io/2020/09/19/hello-world/"/>
-    <url>/syh-home.github.io/2020/09/19/hello-world/</url>
+    <title>communicate</title>
+    <link href="/syh-home.github.io/2020/09/22/communicate/"/>
+    <url>/syh-home.github.io/2020/09/22/communicate/</url>
     
-    <content type="html"><![CDATA[<h2 id="测试第一篇博客"><a href="#测试第一篇博客" class="headerlink" title="测试第一篇博客"></a>测试第一篇博客</h2>]]></content>
+    <content type="html"><![CDATA[]]></content>
     
     
+    <categories>
+      
+      <category>通信</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>ajax</tag>
+      
+    </tags>
     
   </entry>
   
