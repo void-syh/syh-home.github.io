@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="syh">
   <meta name="keywords" content="">
-  <title>电商相关基础知识 - SYH-homepage</title>
+  <title>前端面试大全js部分（三）数据类型转换 - SYH-homepage</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-24 09:38" pubdate>
-        2020年9月24日 上午
+      <time datetime="2020-10-11 09:32" pubdate>
+        2020年10月11日 上午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      226 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      2
        分钟
     </span>
   
@@ -217,25 +217,95 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">电商相关基础知识</h1>
+            <h1 style="display: none">前端面试大全js部分（三）数据类型转换</h1>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="1-类目"><a href="#1-类目" class="headerlink" title="1.类目"></a>1.类目</h3><pre><code>类目，其实就是类型目录，为什么会有这么个东西呢，其实不难理解，加入你总共只卖两个东西，那肯定没有必要需要类目，但是如果你东西非常多，你想让客户尽快的能找到他所需要的东西，不能一个个硬翻吧，所以肯定需要有个分类，让客户根据自己的需要来分类寻找，当你卖的东西更多，用户的需求更细致，一级类目已经无法满足需求了，就要继续往下细分，这就是多级类目。（PS；类目最好不要过深，一般最多五级）</code></pre>
-<h3 id="2-商品分类体系"><a href="#2-商品分类体系" class="headerlink" title="2.商品分类体系"></a>2.商品分类体系</h3><pre><code>有了类目之后，商品的分类其实已经比较清晰，但是当商品越来越多的时候，类目树会越来越深，而且会不可避免的会有交叉的情况，所以当商品越来越多，分类越来越细，用户搜索越来越个性化后，单单靠类目已经不能满足商品管理的需求了。这个时候就出现了另外一个维度的分类方法，叫 “ 属性 ” 。
-属性和类目有什么区别，举个简单的例子，我们平时通讯录，一般都是按26字母进行分类的，这就是类目，但是我们搜索起来可能并没有这么方便，所以我们可以按照亲戚朋友这种不同特征，按属性划分，在进行具体的分类，这样就更方便我们找到想找的人。</code></pre>
-<h3 id="3-SKU-与-SPU"><a href="#3-SKU-与-SPU" class="headerlink" title="3.SKU 与 SPU"></a>3.SKU 与 SPU</h3><pre><code>SPU（Standard Product Unit）：标准化产品单元，是商品信息聚合的最小单位。是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。
-
-SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位， 可以是以件、盒、托盘等为单位。
-
-光看概念，肯定很多人都是一脸懵。下面我们举个例子来通俗一点的理解SKU和SPU
-
-现在假设我们想买一个手机，我们在和别人商量或者自己考虑的时候肯定一般都是想，我是买小米10呢还是iPhone 11呢，其实这里的小米10和iPhone 11就是SPU，我们一说到小米10就知道了我们要买的是哪个品牌哪个型号的手机，但是当你决定买小米10的时候，肯定不会这么简单地说，我买个小米10，卖家就给你送过来了，因为这时你还得选颜色，选存储容量，等等一系列的细节，而带有这些细节的一个商品，就是SKU，商家一般也称库存单位</code></pre>
+              <h3 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h3><ul>
+<li>基本数据类型<ul>
+<li>number<ul>
+<li>NaN<ul>
+<li>(NaN和谁都不相等包括他自己)</li>
+<li>检测NaN方法 isNaN()</li>
+</ul>
+</li>
+<li>Infinity</li>
+</ul>
+</li>
+<li>string</li>
+<li>boolean</li>
+<li>null</li>
+<li>undefined</li>
+<li>symbol</li>
+<li>bigint</li>
+</ul>
+</li>
+<li>引用数据类型<ul>
+<li>object<ul>
+<li>普通对象</li>
+<li>数组对象</li>
+<li>正则对象</li>
+<li>日期对象</li>
+<li>Math数学函数对线</li>
+<li>…</li>
+</ul>
+</li>
+<li>function</li>
+</ul>
+</li>
+</ul>
+<h3 id="检测数据类型常用方法"><a href="#检测数据类型常用方法" class="headerlink" title="检测数据类型常用方法"></a>检测数据类型常用方法</h3><ul>
+<li>typeof<ul>
+<li>返回的结果都是字符串</li>
+<li>局限性：<ul>
+<li>不能细分对象类型</li>
+<li>typeof null = object</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>instanceof</li>
+<li>constructor</li>
+<li>object.prototype.toString.call()</li>
+</ul>
+<h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><ul>
+<li>其他类型转换为数字<ul>
+<li>强转换（基于底层机制转换的）<ul>
+<li>Number(value)</li>
+<li>隐式转换（大多基于Number）<ul>
+<li>isNaN(‘12px’) 先把其他类型值转换为数字再检测</li>
+<li>数字运算 ‘12px-13’</li>
+<li>两个等号比较 字符串 == 数字 字符传和对象转换为字符传 undefined和null与别的都不等，其他都转换为数字</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>弱转换（基于一些额外的方法）<ul>
+<li>parseInt/parseFloat</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/syh-home.github.io/categories/js/">js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/syh-home.github.io/tags/%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B/">数据类型</a>
+                    
+                  </div>
                 
               </div>
               
@@ -246,15 +316,21 @@ SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/syh-home.github.io/2020/10/11/js_9/">
+                      <a href="/syh-home.github.io/2020/10/11/js_5/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前端面试大全js部分（九）面向对象</span>
+                        <span class="hidden-mobile">前端面试大全js部分（五）作用域和闭包</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/syh-home.github.io/2020/10/11/js_4/">
+                        <span class="hidden-mobile">前端面试大全js部分（四）变量提升</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -394,7 +470,7 @@ SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位�
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "电商相关基础知识&nbsp;",
+        "前端面试大全js部分（三）数据类型转换&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

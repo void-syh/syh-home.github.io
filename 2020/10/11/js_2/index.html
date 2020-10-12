@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="syh">
   <meta name="keywords" content="">
-  <title>电商相关基础知识 - SYH-homepage</title>
+  <title>前端面试大全js部分（二）js运行底层机制之堆栈 - SYH-homepage</title>
 
   <link  rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.4.1/css/bootstrap.min.css" />
 
@@ -165,8 +165,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2020-09-24 09:38" pubdate>
-        2020年9月24日 上午
+      <time datetime="2020-10-11 09:32" pubdate>
+        2020年10月11日 上午
       </time>
     </span>
   
@@ -177,7 +177,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      698 字
+      340 字
     </span>
   
 
@@ -187,7 +187,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      7
+      3
        分钟
     </span>
   
@@ -217,25 +217,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto" id="post">
             <!-- SEO header -->
-            <h1 style="display: none">电商相关基础知识</h1>
+            <h1 style="display: none">前端面试大全js部分（二）js运行底层机制之堆栈</h1>
             
             <div class="markdown-body" id="post-body">
-              <h3 id="1-类目"><a href="#1-类目" class="headerlink" title="1.类目"></a>1.类目</h3><pre><code>类目，其实就是类型目录，为什么会有这么个东西呢，其实不难理解，加入你总共只卖两个东西，那肯定没有必要需要类目，但是如果你东西非常多，你想让客户尽快的能找到他所需要的东西，不能一个个硬翻吧，所以肯定需要有个分类，让客户根据自己的需要来分类寻找，当你卖的东西更多，用户的需求更细致，一级类目已经无法满足需求了，就要继续往下细分，这就是多级类目。（PS；类目最好不要过深，一般最多五级）</code></pre>
-<h3 id="2-商品分类体系"><a href="#2-商品分类体系" class="headerlink" title="2.商品分类体系"></a>2.商品分类体系</h3><pre><code>有了类目之后，商品的分类其实已经比较清晰，但是当商品越来越多的时候，类目树会越来越深，而且会不可避免的会有交叉的情况，所以当商品越来越多，分类越来越细，用户搜索越来越个性化后，单单靠类目已经不能满足商品管理的需求了。这个时候就出现了另外一个维度的分类方法，叫 “ 属性 ” 。
-属性和类目有什么区别，举个简单的例子，我们平时通讯录，一般都是按26字母进行分类的，这就是类目，但是我们搜索起来可能并没有这么方便，所以我们可以按照亲戚朋友这种不同特征，按属性划分，在进行具体的分类，这样就更方便我们找到想找的人。</code></pre>
-<h3 id="3-SKU-与-SPU"><a href="#3-SKU-与-SPU" class="headerlink" title="3.SKU 与 SPU"></a>3.SKU 与 SPU</h3><pre><code>SPU（Standard Product Unit）：标准化产品单元，是商品信息聚合的最小单位。是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。
+              <h4 id="栈内存-ECStack-执行环境栈-在计算机中分配出来的一块内存"><a href="#栈内存-ECStack-执行环境栈-在计算机中分配出来的一块内存" class="headerlink" title="栈内存 ECStack 执行环境栈 在计算机中分配出来的一块内存"></a>栈内存 ECStack 执行环境栈 在计算机中分配出来的一块内存</h4><p>浏览器之所以能够运行代码，是因为提供了一个供代码运行的环境。</p>
+<h4 id="EC-执行上下文-EC-G-全局上下文-VO-G-全局变量对象"><a href="#EC-执行上下文-EC-G-全局上下文-VO-G-全局变量对象" class="headerlink" title="EC 执行上下文 EC(G)全局上下文 VO(G)全局变量对象"></a>EC 执行上下文 EC(G)全局上下文 VO(G)全局变量对象</h4><p>代码执行分为：全局代码，函数中代码，私有块中代码，不同环境下的代码执行都有自己执行上下文。</p>
+<h3 id="赋值详细步骤"><a href="#赋值详细步骤" class="headerlink" title="=赋值详细步骤"></a>=赋值详细步骤</h3><p>1.创建一个值12，把他存储起来（基本数据类型直接存取到栈内存）<br>2.声明一个变量，存储到当前上下文的变量对象中<br>3.最后进行等号赋值（本质是指针指向过程）</p>
+<p>如果是引用类型的值，会开辟一个堆内存，用来存储自己的键值对，然后把地址放到栈中，供变量调用</p>
+<pre><code class="hljs gml"><span class="hljs-keyword">var</span> <span class="hljs-symbol">x</span> = [<span class="hljs-number">12</span>, <span class="hljs-number">23</span>];
 
-SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位， 可以是以件、盒、托盘等为单位。
+function fn(<span class="hljs-symbol">y</span>) &#123;
+    <span class="hljs-symbol">y</span>[<span class="hljs-number">0</span>] = <span class="hljs-number">100</span>;
+    <span class="hljs-symbol">y</span> = [<span class="hljs-number">100</span>];
+    <span class="hljs-symbol">y</span>[<span class="hljs-number">1</span>] = <span class="hljs-number">200</span>;
+    console.log(<span class="hljs-symbol">y</span>);<span class="hljs-comment">//[100,200]</span>
+&#125;
+fn(<span class="hljs-symbol">x</span>);
+console.log(<span class="hljs-symbol">x</span>);<span class="hljs-comment">//[100,23]</span></code></pre>
 
-光看概念，肯定很多人都是一脸懵。下面我们举个例子来通俗一点的理解SKU和SPU
-
-现在假设我们想买一个手机，我们在和别人商量或者自己考虑的时候肯定一般都是想，我是买小米10呢还是iPhone 11呢，其实这里的小米10和iPhone 11就是SPU，我们一说到小米10就知道了我们要买的是哪个品牌哪个型号的手机，但是当你决定买小米10的时候，肯定不会这么简单地说，我买个小米10，卖家就给你送过来了，因为这时你还得选颜色，选存储容量，等等一系列的细节，而带有这些细节的一个商品，就是SKU，商家一般也称库存单位</code></pre>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>当前私有上下文代码执行，遇到一个变量，首先看是否为私有变量，如果是私有的，则接下来所有操作都是操作私有，和其他上下文没关系，不过不是私有的，则按照作用域链向上级查找，知道全局上下文</p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/syh-home.github.io/categories/js/">js</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/syh-home.github.io/tags/%E5%A0%86%E6%A0%88/">堆栈</a>
+                    
+                  </div>
                 
               </div>
               
@@ -246,15 +266,21 @@ SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位�
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/syh-home.github.io/2020/10/11/js_9/">
+                      <a href="/syh-home.github.io/2020/10/11/js_1/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">前端面试大全js部分（九）面向对象</span>
+                        <span class="hidden-mobile">前端面试大全js部分（一）9大数据类型</span>
                         <span class="visible-mobile">上一篇</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
+                    
+                      <a href="/syh-home.github.io/2020/10/11/js_5/">
+                        <span class="hidden-mobile">前端面试大全js部分（五）作用域和闭包</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
                     
                   </article>
                 </div>
@@ -394,7 +420,7 @@ SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位�
     var typed = new Typed('#subtitle', {
       strings: [
         '  ',
-        "电商相关基础知识&nbsp;",
+        "前端面试大全js部分（二）js运行底层机制之堆栈&nbsp;",
       ],
       cursorChar: "_",
       typeSpeed: 70,

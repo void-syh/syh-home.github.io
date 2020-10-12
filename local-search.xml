@@ -4,22 +4,161 @@
   
   
   <entry>
-    <title>电商相关基础知识</title>
-    <link href="/syh-home.github.io/2020/09/24/EB_1/"/>
-    <url>/syh-home.github.io/2020/09/24/EB_1/</url>
+    <title>前端面试大全js部分（一）9大数据类型</title>
+    <link href="/syh-home.github.io/2020/10/11/js_1/"/>
+    <url>/syh-home.github.io/2020/10/11/js_1/</url>
     
-    <content type="html"><![CDATA[<h3 id="1-类目"><a href="#1-类目" class="headerlink" title="1.类目"></a>1.类目</h3><pre><code>类目，其实就是类型目录，为什么会有这么个东西呢，其实不难理解，加入你总共只卖两个东西，那肯定没有必要需要类目，但是如果你东西非常多，你想让客户尽快的能找到他所需要的东西，不能一个个硬翻吧，所以肯定需要有个分类，让客户根据自己的需要来分类寻找，当你卖的东西更多，用户的需求更细致，一级类目已经无法满足需求了，就要继续往下细分，这就是多级类目。（PS；类目最好不要过深，一般最多五级）</code></pre><h3 id="2-商品分类体系"><a href="#2-商品分类体系" class="headerlink" title="2.商品分类体系"></a>2.商品分类体系</h3><pre><code>有了类目之后，商品的分类其实已经比较清晰，但是当商品越来越多的时候，类目树会越来越深，而且会不可避免的会有交叉的情况，所以当商品越来越多，分类越来越细，用户搜索越来越个性化后，单单靠类目已经不能满足商品管理的需求了。这个时候就出现了另外一个维度的分类方法，叫 “ 属性 ” 。属性和类目有什么区别，举个简单的例子，我们平时通讯录，一般都是按26字母进行分类的，这就是类目，但是我们搜索起来可能并没有这么方便，所以我们可以按照亲戚朋友这种不同特征，按属性划分，在进行具体的分类，这样就更方便我们找到想找的人。</code></pre><h3 id="3-SKU-与-SPU"><a href="#3-SKU-与-SPU" class="headerlink" title="3.SKU 与 SPU"></a>3.SKU 与 SPU</h3><pre><code>SPU（Standard Product Unit）：标准化产品单元，是商品信息聚合的最小单位。是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位， 可以是以件、盒、托盘等为单位。光看概念，肯定很多人都是一脸懵。下面我们举个例子来通俗一点的理解SKU和SPU现在假设我们想买一个手机，我们在和别人商量或者自己考虑的时候肯定一般都是想，我是买小米10呢还是iPhone 11呢，其实这里的小米10和iPhone 11就是SPU，我们一说到小米10就知道了我们要买的是哪个品牌哪个型号的手机，但是当你决定买小米10的时候，肯定不会这么简单地说，我买个小米10，卖家就给你送过来了，因为这时你还得选颜色，选存储容量，等等一系列的细节，而带有这些细节的一个商品，就是SKU，商家一般也称库存单位</code></pre>]]></content>
+    <content type="html"><![CDATA[<ul><li>基本数据类型:<ul><li>number</li><li>string</li><li>boolean</li><li>null</li><li>undefined</li><li>symbol</li><li>bigint</li></ul></li><li>引用数据类型:<ul><li>object<ul><li>{}普通对象</li><li>[]数组对象</li><li>正则对象</li><li>日期对象</li></ul></li><li>function</li></ul></li></ul><h3 id="NaN"><a href="#NaN" class="headerlink" title="NaN"></a>NaN</h3><p>not a number 意为不是一个有效数字，number类型 与所有值都不相等，包括自己。<br>isNaN 检查参数是否为数字值</p><pre><code class="hljs coffeescript"><span class="hljs-built_in">console</span>.log(<span class="hljs-literal">NaN</span>==<span class="hljs-literal">NaN</span>)<span class="hljs-regexp">//</span>=&gt;<span class="hljs-literal">false</span><span class="hljs-built_in">Object</span>.<span class="hljs-keyword">is</span>(<span class="hljs-literal">NaN</span>,<span class="hljs-literal">NaN</span>)<span class="hljs-regexp">//</span>=&gt; <span class="hljs-literal">true</span></code></pre><h3 id="Symbol"><a href="#Symbol" class="headerlink" title="Symbol"></a>Symbol</h3><p>symbol类型都是唯一值<br>每次创建都会生成一个地址对象</p><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> val = <span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;00&#x27;</span>);<span class="hljs-built_in">console</span>.log(val==val)<span class="hljs-comment">//true;</span><span class="hljs-built_in">console</span>.log(<span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;aa&#x27;</span>)==<span class="hljs-built_in">Symbol</span>(<span class="hljs-string">&#x27;aa&#x27;</span>))<span class="hljs-comment">//=&gt;false</span></code></pre><h3 id="面试题一"><a href="#面试题一" class="headerlink" title="面试题一"></a>面试题一</h3><pre><code class="hljs typescript"><span class="hljs-keyword">let</span> res = <span class="hljs-built_in">parseFloat</span>(<span class="hljs-string">&#x27;left:200px&#x27;</span>); <span class="hljs-comment">//NaN</span><span class="hljs-keyword">if</span> (res === <span class="hljs-number">200</span>) &#123;    alert(<span class="hljs-number">200</span>);&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (res === <span class="hljs-literal">NaN</span>) &#123; <span class="hljs-comment">//不相等</span>    alert(<span class="hljs-literal">NaN</span>);&#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (<span class="hljs-keyword">typeof</span> res === <span class="hljs-string">&#x27;number&#x27;</span>) &#123;    alert(<span class="hljs-string">&#x27;number&#x27;</span>);&#125; <span class="hljs-keyword">else</span> &#123;    alert(<span class="hljs-string">&#x27;Invalid Number&#x27;</span>);&#125;输出<span class="hljs-built_in">number</span></code></pre><h3 id="对象的属性名会先转换为字符串类型（除Symbol）"><a href="#对象的属性名会先转换为字符串类型（除Symbol）" class="headerlink" title="对象的属性名会先转换为字符串类型（除Symbol）"></a>对象的属性名会先转换为字符串类型（除Symbol）</h3><h3 id="基于var-function声明的变量在window可以访问-let和const和window没有关系"><a href="#基于var-function声明的变量在window可以访问-let和const和window没有关系" class="headerlink" title="基于var function声明的变量在window可以访问 let和const和window没有关系"></a>基于var function声明的变量在window可以访问 let和const和window没有关系</h3>]]></content>
     
     
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据类型</tag>
+      
+    </tags>
     
   </entry>
   
   
   
   <entry>
-    <title>电商相关基础知识</title>
-    <link href="/syh-home.github.io/2020/09/24/js_1/"/>
-    <url>/syh-home.github.io/2020/09/24/js_1/</url>
+    <title>前端面试大全js部分（二）js运行底层机制之堆栈</title>
+    <link href="/syh-home.github.io/2020/10/11/js_2/"/>
+    <url>/syh-home.github.io/2020/10/11/js_2/</url>
+    
+    <content type="html"><![CDATA[<h4 id="栈内存-ECStack-执行环境栈-在计算机中分配出来的一块内存"><a href="#栈内存-ECStack-执行环境栈-在计算机中分配出来的一块内存" class="headerlink" title="栈内存 ECStack 执行环境栈 在计算机中分配出来的一块内存"></a>栈内存 ECStack 执行环境栈 在计算机中分配出来的一块内存</h4><p>浏览器之所以能够运行代码，是因为提供了一个供代码运行的环境。</p><h4 id="EC-执行上下文-EC-G-全局上下文-VO-G-全局变量对象"><a href="#EC-执行上下文-EC-G-全局上下文-VO-G-全局变量对象" class="headerlink" title="EC 执行上下文 EC(G)全局上下文 VO(G)全局变量对象"></a>EC 执行上下文 EC(G)全局上下文 VO(G)全局变量对象</h4><p>代码执行分为：全局代码，函数中代码，私有块中代码，不同环境下的代码执行都有自己执行上下文。</p><h3 id="赋值详细步骤"><a href="#赋值详细步骤" class="headerlink" title="=赋值详细步骤"></a>=赋值详细步骤</h3><p>1.创建一个值12，把他存储起来（基本数据类型直接存取到栈内存）<br>2.声明一个变量，存储到当前上下文的变量对象中<br>3.最后进行等号赋值（本质是指针指向过程）</p><p>如果是引用类型的值，会开辟一个堆内存，用来存储自己的键值对，然后把地址放到栈中，供变量调用</p><pre><code class="hljs gml"><span class="hljs-keyword">var</span> <span class="hljs-symbol">x</span> = [<span class="hljs-number">12</span>, <span class="hljs-number">23</span>];function fn(<span class="hljs-symbol">y</span>) &#123;    <span class="hljs-symbol">y</span>[<span class="hljs-number">0</span>] = <span class="hljs-number">100</span>;    <span class="hljs-symbol">y</span> = [<span class="hljs-number">100</span>];    <span class="hljs-symbol">y</span>[<span class="hljs-number">1</span>] = <span class="hljs-number">200</span>;    console.log(<span class="hljs-symbol">y</span>);<span class="hljs-comment">//[100,200]</span>&#125;fn(<span class="hljs-symbol">x</span>);console.log(<span class="hljs-symbol">x</span>);<span class="hljs-comment">//[100,23]</span></code></pre><h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a>作用域链</h3><p>当前私有上下文代码执行，遇到一个变量，首先看是否为私有变量，如果是私有的，则接下来所有操作都是操作私有，和其他上下文没关系，不过不是私有的，则按照作用域链向上级查找，知道全局上下文</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>堆栈</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（五）作用域和闭包</title>
+    <link href="/syh-home.github.io/2020/10/11/js_5/"/>
+    <url>/syh-home.github.io/2020/10/11/js_5/</url>
+    
+    <content type="html"><![CDATA[<pre><code class="hljs zephir"><span class="hljs-keyword">let</span> x= <span class="hljs-number">5</span>;<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span><span class="hljs-params">(x)</span></span>&#123;    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(y)</span></span>&#123;        console.log(y+(++x));    &#125;&#125;<span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">6</span>)</span></span>;f(<span class="hljs-number">7</span>);<span class="hljs-comment">//14</span><span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">8</span>)</span><span class="hljs-params">(<span class="hljs-number">9</span>)</span></span>;<span class="hljs-comment">//14</span>f(<span class="hljs-number">10</span>);<span class="hljs-comment">//18</span>console.log(x);<span class="hljs-comment">//5</span><span class="hljs-keyword">let</span> x = <span class="hljs-number">5</span>;<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span><span class="hljs-params">()</span> </span>&#123;    <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span><span class="hljs-params">(y)</span> </span>&#123;        console.log(y + (++x));    &#125;&#125;<span class="hljs-keyword">let</span> f = <span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">6</span>)</span></span>;f(<span class="hljs-number">7</span>); <span class="hljs-comment">//13</span><span class="hljs-function"><span class="hljs-keyword">fn</span><span class="hljs-params">(<span class="hljs-number">8</span>)</span><span class="hljs-params">(<span class="hljs-number">9</span>)</span></span>; <span class="hljs-comment">//16</span>f(<span class="hljs-number">10</span>); <span class="hljs-comment">//18</span>console.log(x); <span class="hljs-comment">//8</span></code></pre><h3 id="垃圾回收机制"><a href="#垃圾回收机制" class="headerlink" title="垃圾回收机制"></a>垃圾回收机制</h3><p>【栈内存:EC】</p><ul><li>全局执行上下文：在浏览器加载页面的时候形成，然后会在关闭页面的时候释放（页面刷新：先释放，重新加载后再形成）</li><li>私有上下文：函数执行会形成一个私有上下文（let const也会产生私有上下文）一般情况下啊代码执行完就会被出栈释放，如果当前上下文的某个内容（一般是一个堆）被上下文以外的事物占用了，则当前上下文不能被释放</li></ul><p>【堆内存】<br>谷歌浏览器按照是否被引用来决定堆内存是释放还是不释放，浏览器会定期隔一段时间，查找所有堆内存是否被占用，被占用的不处理，但是如果没有被占用，则直接把他释放掉</p><ul><li>我们可以基于手动赋值为null的方式结束堆内存的占用，来达到释放内存的目的<br>ie浏览器是根据引用计数的方式，每次被占用都会计数累计，相反取消引用就会减少，当为0时，释放内存</li><li>这种方式会出现记着记着就乱了，会导致内存泄漏</li></ul><h3 id="闭包"><a href="#闭包" class="headerlink" title="闭包"></a>闭包</h3><p>函数执行，会形成一个私有的上下文，这个私有上下文会保护里面的私有变量不受外界的干扰，我们把这种保护机制称为闭包；</p><ul><li>保护里面的私有变量不受外界干扰</li><li>保存里面的私有变量</li></ul><p>闭包面试题</p><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-number">0</span>;    b = <span class="hljs-number">0</span>;<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">A</span>(<span class="hljs-params">a</span>)</span>&#123;    A = <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params">b</span>)</span>&#123;        alert(a+b++);    &#125;    alert(a++);&#125;A(<span class="hljs-number">1</span>);<span class="hljs-comment">//1</span>A(<span class="hljs-number">2</span>);<span class="hljs-comment">//4</span></code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>闭包</tag>
+      
+      <tag>作用域</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（三）数据类型转换</title>
+    <link href="/syh-home.github.io/2020/10/11/js_3/"/>
+    <url>/syh-home.github.io/2020/10/11/js_3/</url>
+    
+    <content type="html"><![CDATA[<h3 id="JS中的数据类型"><a href="#JS中的数据类型" class="headerlink" title="JS中的数据类型"></a>JS中的数据类型</h3><ul><li>基本数据类型<ul><li>number<ul><li>NaN<ul><li>(NaN和谁都不相等包括他自己)</li><li>检测NaN方法 isNaN()</li></ul></li><li>Infinity</li></ul></li><li>string</li><li>boolean</li><li>null</li><li>undefined</li><li>symbol</li><li>bigint</li></ul></li><li>引用数据类型<ul><li>object<ul><li>普通对象</li><li>数组对象</li><li>正则对象</li><li>日期对象</li><li>Math数学函数对线</li><li>…</li></ul></li><li>function</li></ul></li></ul><h3 id="检测数据类型常用方法"><a href="#检测数据类型常用方法" class="headerlink" title="检测数据类型常用方法"></a>检测数据类型常用方法</h3><ul><li>typeof<ul><li>返回的结果都是字符串</li><li>局限性：<ul><li>不能细分对象类型</li><li>typeof null = object</li></ul></li></ul></li><li>instanceof</li><li>constructor</li><li>object.prototype.toString.call()</li></ul><h3 id="数据类型转换"><a href="#数据类型转换" class="headerlink" title="数据类型转换"></a>数据类型转换</h3><ul><li>其他类型转换为数字<ul><li>强转换（基于底层机制转换的）<ul><li>Number(value)</li><li>隐式转换（大多基于Number）<ul><li>isNaN(‘12px’) 先把其他类型值转换为数字再检测</li><li>数字运算 ‘12px-13’</li><li>两个等号比较 字符串 == 数字 字符传和对象转换为字符传 undefined和null与别的都不等，其他都转换为数字</li></ul></li></ul></li><li>弱转换（基于一些额外的方法）<ul><li>parseInt/parseFloat</li></ul></li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据类型</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（四）变量提升</title>
+    <link href="/syh-home.github.io/2020/10/11/js_4/"/>
+    <url>/syh-home.github.io/2020/10/11/js_4/</url>
+    
+    <content type="html"><![CDATA[<h3 id="变量提升"><a href="#变量提升" class="headerlink" title="变量提升"></a>变量提升</h3><p>在当前上下文中（全局/私有/块级），js代码自上而下执行之前，浏览器会提前处理一些事情（可以理解为词法解析一个环节）</p><p>会把当前上下文所有带var/function关键字的进行提前的声明定义 var声明 func声明定义</p><pre><code class="hljs abnf">console.log(a)<span class="hljs-comment">; //undefined</span>var a = <span class="hljs-number">12</span><span class="hljs-comment">;</span><span class="hljs-attribute">a</span> = <span class="hljs-number">13</span><span class="hljs-comment">;</span>console.log(a)<span class="hljs-comment">; //13</span></code></pre><pre><code class="hljs openscad">console.<span class="hljs-built_in">log</span>(a);<span class="hljs-comment">//报错 a is not defined</span>a = <span class="hljs-number">13</span>;console.<span class="hljs-built_in">log</span>(a);console.<span class="hljs-built_in">log</span>(&#x27;ok)console.<span class="hljs-built_in">log</span>(a);<span class="hljs-comment">//报错 cannot access &#x27;a&#x27; before initialization</span><span class="hljs-built_in">let</span> a = <span class="hljs-number">12</span>;a = <span class="hljs-number">13</span>;console.<span class="hljs-built_in">log</span>(a);</code></pre><pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>;<span class="hljs-comment">//可以运行</span>function <span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span>&#123;    <span class="hljs-keyword">var</span> a= <span class="hljs-number">12</span>;    console.log(&#x27;ok);&#125;</code></pre><pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span><span class="hljs-comment">//报错</span><span class="hljs-keyword">var</span> <span class="hljs-function"><span class="hljs-keyword">func</span> = <span class="hljs-title">function</span><span class="hljs-params">()</span></span>&#123;    console.log(&#x27;ok)&#125;</code></pre><pre><code class="hljs swift"><span class="hljs-function"><span class="hljs-keyword">func</span><span class="hljs-params">()</span></span><span class="hljs-comment">//报错</span><span class="hljs-keyword">var</span> <span class="hljs-function"><span class="hljs-keyword">func</span> = <span class="hljs-title">function</span> <span class="hljs-title">AAA</span><span class="hljs-params">()</span></span>&#123;<span class="hljs-comment">//具名化 不能在外面访问</span>    console.log(<span class="hljs-type">AAA</span>)<span class="hljs-comment">//内部可以访问</span>    <span class="hljs-type">AAA</span>();<span class="hljs-comment">//递归调用</span>    console.log(&#x27;ok)&#125;</code></pre><h3 id="老板浏览器-不论条件是否成立，都要进行变量提升"><a href="#老板浏览器-不论条件是否成立，都要进行变量提升" class="headerlink" title="[老板浏览器]不论条件是否成立，都要进行变量提升"></a>[老板浏览器]不论条件是否成立，都要进行变量提升</h3><h3 id="新版本浏览器-为了兼容es3和es6，规则处理很复杂"><a href="#新版本浏览器-为了兼容es3和es6，规则处理很复杂" class="headerlink" title="[新版本浏览器] 为了兼容es3和es6，规则处理很复杂"></a>[新版本浏览器] 为了兼容es3和es6，规则处理很复杂</h3><h3 id="面试题"><a href="#面试题" class="headerlink" title="面试题"></a>面试题</h3><pre><code class="hljs php"><span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//5</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>&#123;console.log(<span class="hljs-number">1</span>);&#125;<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//5</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>&#123;console.log(<span class="hljs-number">2</span>);&#125;<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//5</span><span class="hljs-keyword">var</span> <span class="hljs-function"><span class="hljs-keyword">fn</span> = <span class="hljs-title">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>&#123;console.log(<span class="hljs-number">3</span>);&#125;<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//3</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>&#123;console.log(<span class="hljs-number">4</span>);&#125;<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//3</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">fn</span>(<span class="hljs-params"></span>)</span>&#123;console.log(<span class="hljs-number">5</span>);&#125;<span class="hljs-function"><span class="hljs-keyword">fn</span>(<span class="hljs-params"></span>)</span>;<span class="hljs-comment">//3</span></code></pre><pre><code class="hljs javascript"><span class="hljs-keyword">var</span> foo = <span class="hljs-number">1</span>;<span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">bar</span>(<span class="hljs-params"></span>)</span>&#123;    <span class="hljs-keyword">if</span>(!foo)&#123;        <span class="hljs-keyword">var</span> foo = <span class="hljs-number">10</span>;    &#125;    <span class="hljs-built_in">console</span>.log(foo);&#125;bar() <span class="hljs-comment">//10</span></code></pre>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>变量提升</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（六）var 和 let区别</title>
+    <link href="/syh-home.github.io/2020/10/11/js_6/"/>
+    <url>/syh-home.github.io/2020/10/11/js_6/</url>
+    
+    <content type="html"><![CDATA[<ul><li>var/function存在变量提升 let/const不存在变量提升</li><li>在相同的上下文中，let不允许重复声明（检测在词法解析阶段（词法解析-&gt;变量提升-&gt;代码执行）也就是词法解析检测到重复声明直接报错，js代码一行也不执行）;且不论基于什么方式声明的变量，只要在当前上下文中有了，则不允许再基于let/const声明</li><li>暂时性死区 基于typeof 检测一个未被声明的变量，不会报错，显示undefined</li><li>块级私有上下文（作用域）<ul><li>除函数或者对象的大括号之外，如果括号出现let/const 则会产生块级私有上下文</li><li>当前块级上下文也只是对let/const/function他们声明的变量有作用</li></ul></li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据类型</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（七）闭包的应用</title>
+    <link href="/syh-home.github.io/2020/10/11/js_7/"/>
+    <url>/syh-home.github.io/2020/10/11/js_7/</url>
     
     <content type="html"><![CDATA[]]></content>
     
@@ -33,9 +172,72 @@
     
     <tags>
       
-      <tag>原型链</tag>
+      <tag>数据类型</tag>
       
     </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（八）this</title>
+    <link href="/syh-home.github.io/2020/10/11/js_8/"/>
+    <url>/syh-home.github.io/2020/10/11/js_8/</url>
+    
+    <content type="html"><![CDATA[<ul><li>1.给当前元素的某个事件行为绑定方法，事件触发，执行对应的方法，方法中的this是当前元素本身</li><li>2.函数执行，谁调用this指向谁，没有则指向window</li><li>3.构造函数this执行当前类的实例</li><li>4.箭头函数没有自己的this，用到的this都是上下文的this</li><li>5.call/bind/apply强制改变this</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据类型</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>前端面试大全js部分（九）面向对象</title>
+    <link href="/syh-home.github.io/2020/10/11/js_9/"/>
+    <url>/syh-home.github.io/2020/10/11/js_9/</url>
+    
+    <content type="html"><![CDATA[<h3 id="面向对象三大概念"><a href="#面向对象三大概念" class="headerlink" title="面向对象三大概念"></a>面向对象三大概念</h3><ul><li>对象 泛指(万物皆对象)</li><li>类</li><li>实例</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>js</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>数据类型</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>电商相关基础知识</title>
+    <link href="/syh-home.github.io/2020/09/24/EB_1/"/>
+    <url>/syh-home.github.io/2020/09/24/EB_1/</url>
+    
+    <content type="html"><![CDATA[<h3 id="1-类目"><a href="#1-类目" class="headerlink" title="1.类目"></a>1.类目</h3><pre><code>类目，其实就是类型目录，为什么会有这么个东西呢，其实不难理解，加入你总共只卖两个东西，那肯定没有必要需要类目，但是如果你东西非常多，你想让客户尽快的能找到他所需要的东西，不能一个个硬翻吧，所以肯定需要有个分类，让客户根据自己的需要来分类寻找，当你卖的东西更多，用户的需求更细致，一级类目已经无法满足需求了，就要继续往下细分，这就是多级类目。（PS；类目最好不要过深，一般最多五级）</code></pre><h3 id="2-商品分类体系"><a href="#2-商品分类体系" class="headerlink" title="2.商品分类体系"></a>2.商品分类体系</h3><pre><code>有了类目之后，商品的分类其实已经比较清晰，但是当商品越来越多的时候，类目树会越来越深，而且会不可避免的会有交叉的情况，所以当商品越来越多，分类越来越细，用户搜索越来越个性化后，单单靠类目已经不能满足商品管理的需求了。这个时候就出现了另外一个维度的分类方法，叫 “ 属性 ” 。属性和类目有什么区别，举个简单的例子，我们平时通讯录，一般都是按26字母进行分类的，这就是类目，但是我们搜索起来可能并没有这么方便，所以我们可以按照亲戚朋友这种不同特征，按属性划分，在进行具体的分类，这样就更方便我们找到想找的人。</code></pre><h3 id="3-SKU-与-SPU"><a href="#3-SKU-与-SPU" class="headerlink" title="3.SKU 与 SPU"></a>3.SKU 与 SPU</h3><pre><code>SPU（Standard Product Unit）：标准化产品单元，是商品信息聚合的最小单位。是一组可复用、易检索的标准化信息的集合，该集合描述了一个产品的特性。SKU（Stock Keeping Unit）：库存量单位，即库存进出计量的单位， 可以是以件、盒、托盘等为单位。光看概念，肯定很多人都是一脸懵。下面我们举个例子来通俗一点的理解SKU和SPU现在假设我们想买一个手机，我们在和别人商量或者自己考虑的时候肯定一般都是想，我是买小米10呢还是iPhone 11呢，其实这里的小米10和iPhone 11就是SPU，我们一说到小米10就知道了我们要买的是哪个品牌哪个型号的手机，但是当你决定买小米10的时候，肯定不会这么简单地说，我买个小米10，卖家就给你送过来了，因为这时你还得选颜色，选存储容量，等等一系列的细节，而带有这些细节的一个商品，就是SKU，商家一般也称库存单位</code></pre>]]></content>
+    
+    
     
   </entry>
   
